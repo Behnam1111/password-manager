@@ -1,5 +1,6 @@
 from tkinter import *
 WHITE = '#FFFFFF'
+FONT_NAME = "Hourier"
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
@@ -25,13 +26,13 @@ email_entry.grid(row=2, column=1, columnspan=2)
 password_label = Label(text="Password:", bg=WHITE)
 password_label.grid(row=3, column=0)
 
-password_entry = Entry(width=18)
+password_entry = Entry(width=24)
 password_entry.grid(row=3, column=1)
 
-password_generator_button = Button(text="Generate Password", bg=WHITE)
+password_generator_button = Button(text="Generate Password", bg=WHITE, font=(FONT_NAME, 5, 'bold'), width=15)
 password_generator_button.grid(row=3, column=2)
 
-add_button = Button(text="Add", bg=WHITE, width=35)
+add_button = Button(text="Add Password", bg=WHITE, width=46, font=(FONT_NAME, 6, 'bold'))
 add_button.grid(row=4, column=1, columnspan=2)
 
 canvas = Canvas(width=200, height=200, bg=WHITE, highlightthickness=0)
