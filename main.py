@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 WHITE = '#FFFFFF'
 FONT_NAME = "Hourier"
@@ -11,14 +12,19 @@ def save():
     website = website_entry.get()
     email = email_entry.get()
     password = password_entry.get()
-
-    with open('data.txt', 'a') as data:
-        record = f"{website} | {email} | {password}\n"
-        data.write(record)
-
-    website_entry.delete(0, 'end')
-    email_entry.delete(0, 'end')
-    password_entry.delete(0, 'end')
+    if website and email and password:
+        is_ok = messagebox.askokcancel(title='website', message=f'the email you have entered is {email}\nthe password you '
+                                                                f'have entered is {password}\n are you sure you want to '
+                                                                f'save?')
+        if is_ok:
+            with open('data.txt', 'a') as data:
+                record = f"{website} | {email} | {password}\n"
+                data.write(record)
+                website_entry.delete(0, 'end')
+                email_entry.delete(0, 'end')
+                password_entry.delete(0, 'end')
+    else:
+        messagebox.showwarning(title='empty', message='please do not leave any fields empty')
 
 
 # ---------------------------- UI SETUP ------------------------------- #
